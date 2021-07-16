@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <string.h>
+#include "jukebox.h"
+
+int banyakLagu = 1;
+pustaka juke;
+pustaka mintaLagu(){
+	printf("\nMasukkan informasi lagu\n");
+	printf("\njudul lagu:");
+	scanf("%s", juke.judul[banyakLagu]);
+	printf("penyanyi:");
+	scanf("%s", juke.namaPenyanyi[banyakLagu]);
+	printf("durasi lagu:");
+	scanf("%d", &juke.durasiLagu[banyakLagu]);
+	printf("nama berkas lagu:");
+	scanf("%s", juke.namaBerkasLagu[banyakLagu]);
+	banyakLagu ++;
+}
+void tampilkan(int laguKe){
+	printf("\n informasi lagu:\n");
+	printf("Judul Lagu : %s\n", juke.judul[laguKe]);
+	printf("penyanyi: %s\n", juke.namaPenyanyi[laguKe]);
+	printf("durasi: %d detik \n", juke.durasiLagu[laguKe]);
+	printf("Nama berkas: %s.%s\n", juke.judul[laguKe], juke.namaBerkasLagu[laguKe]);
+}
+
+void cariJudul(char pencarianjudul[50]){
+	printf("\nMasukkan judul yang di cari: ");
+	scanf("%s",juke.judul2);
+
+ 	for (int i = 0; i < banyakLagu; i++) {
+	if (strcmp(pencarianjudul, juke.judul[i]) == 0 ) { 
+        tampilkan(i);
+    }
+	}
+}
+void cariPenyanyi(char pencarianpenyanyi[50]){
+	printf("\nMasukkan nama penyanyi yang di cari: ");
+	scanf("%s",juke.namaPenyanyi2);
+
+ 	for (int i = 0; i < banyakLagu; i++) {
+	if (strcmp(pencarianpenyanyi, juke.namaPenyanyi[i]) == 0 ) { 
+        tampilkan(i);
+    }
+	}
+}
